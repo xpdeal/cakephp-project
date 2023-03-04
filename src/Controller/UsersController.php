@@ -4,12 +4,12 @@ declare(strict_types=1);
 namespace App\Controller;
 
 /**
- * Pages Controller
+ * Users Controller
  *
- * @property \App\Model\Table\PagesTable $Pages
- * @method \App\Model\Entity\Page[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
+ * @property \App\Model\Table\UsersTable $Users
+ * @method \App\Model\Entity\User[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
-class PagesController extends AppController
+class UsersController extends AppController
 {
     /**
      * Index method
@@ -18,25 +18,25 @@ class PagesController extends AppController
      */
     public function index()
     {
-        $pages = $this->paginate($this->Pages);
+        $users = $this->paginate($this->Users);
 
-        $this->set(compact('pages'));
+        $this->set(compact('users'));
     }
 
     /**
      * View method
      *
-     * @param string|null $id Page id.
+     * @param string|null $id User id.
      * @return \Cake\Http\Response|null|void Renders view
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
     public function view($id = null)
     {
-        $page = $this->Pages->get($id, [
+        $user = $this->Users->get($id, [
             'contain' => [],
         ]);
 
-        $this->set(compact('page'));
+        $this->set(compact('user'));
     }
 
     /**
@@ -46,58 +46,58 @@ class PagesController extends AppController
      */
     public function add()
     {
-        $page = $this->Pages->newEmptyEntity();
+        $user = $this->Users->newEmptyEntity();
         if ($this->request->is('post')) {
-            $page = $this->Pages->patchEntity($page, $this->request->getData());
-            if ($this->Pages->save($page)) {
-                $this->Flash->success(__('The page has been saved.'));
+            $user = $this->Users->patchEntity($user, $this->request->getData());
+            if ($this->Users->save($user)) {
+                $this->Flash->success(__('The user has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The page could not be saved. Please, try again.'));
+            $this->Flash->error(__('The user could not be saved. Please, try again.'));
         }
-        $this->set(compact('page'));
+        $this->set(compact('user'));
     }
 
     /**
      * Edit method
      *
-     * @param string|null $id Page id.
+     * @param string|null $id User id.
      * @return \Cake\Http\Response|null|void Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
     public function edit($id = null)
     {
-        $page = $this->Pages->get($id, [
+        $user = $this->Users->get($id, [
             'contain' => [],
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $page = $this->Pages->patchEntity($page, $this->request->getData());
-            if ($this->Pages->save($page)) {
-                $this->Flash->success(__('The page has been saved.'));
+            $user = $this->Users->patchEntity($user, $this->request->getData());
+            if ($this->Users->save($user)) {
+                $this->Flash->success(__('The user has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The page could not be saved. Please, try again.'));
+            $this->Flash->error(__('The user could not be saved. Please, try again.'));
         }
-        $this->set(compact('page'));
+        $this->set(compact('user'));
     }
 
     /**
      * Delete method
      *
-     * @param string|null $id Page id.
+     * @param string|null $id User id.
      * @return \Cake\Http\Response|null|void Redirects to index.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
     public function delete($id = null)
     {
         $this->request->allowMethod(['post', 'delete']);
-        $page = $this->Pages->get($id);
-        if ($this->Pages->delete($page)) {
-            $this->Flash->success(__('The page has been deleted.'));
+        $user = $this->Users->get($id);
+        if ($this->Users->delete($user)) {
+            $this->Flash->success(__('The user has been deleted.'));
         } else {
-            $this->Flash->error(__('The page could not be deleted. Please, try again.'));
+            $this->Flash->error(__('The user could not be deleted. Please, try again.'));
         }
 
         return $this->redirect(['action' => 'index']);

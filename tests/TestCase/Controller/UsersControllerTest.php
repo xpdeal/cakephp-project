@@ -3,16 +3,16 @@ declare(strict_types=1);
 
 namespace App\Test\TestCase\Controller;
 
-use App\Controller\PagesController;
+use App\Controller\UsersController;
 use Cake\TestSuite\IntegrationTestTrait;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Controller\PagesController Test Case
+ * App\Controller\UsersController Test Case
  *
- * @uses \App\Controller\PagesController
+ * @uses \App\Controller\UsersController
  */
-class PagesControllerTest extends TestCase
+class UsersControllerTest extends TestCase
 {
     use IntegrationTestTrait;
 
@@ -22,14 +22,14 @@ class PagesControllerTest extends TestCase
      * @var array<string>
      */
     protected $fixtures = [
-        'app.Pages',
+        'app.Users',
     ];
 
     /**
      * Test index method
      *
      * @return void
-     * @uses \App\Controller\PagesController::index()
+     * @uses \App\Controller\UsersController::index()
      */
     public function testIndex(): void
     {
@@ -40,7 +40,7 @@ class PagesControllerTest extends TestCase
      * Test view method
      *
      * @return void
-     * @uses \App\Controller\PagesController::view()
+     * @uses \App\Controller\UsersController::view()
      */
     public function testView(): void
     {
@@ -51,7 +51,7 @@ class PagesControllerTest extends TestCase
      * Test add method
      *
      * @return void
-     * @uses \App\Controller\PagesController::add()
+     * @uses \App\Controller\UsersController::add()
      */
     public function testAdd(): void
     {
@@ -62,7 +62,7 @@ class PagesControllerTest extends TestCase
      * Test edit method
      *
      * @return void
-     * @uses \App\Controller\PagesController::edit()
+     * @uses \App\Controller\UsersController::edit()
      */
     public function testEdit(): void
     {
@@ -73,7 +73,7 @@ class PagesControllerTest extends TestCase
      * Test delete method
      *
      * @return void
-     * @uses \App\Controller\PagesController::delete()
+     * @uses \App\Controller\UsersController::delete()
      */
     public function testDelete(): void
     {
