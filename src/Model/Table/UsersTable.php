@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Model\Table;
@@ -44,6 +45,10 @@ class UsersTable extends Table
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
+
+        $this->addBehavior('Muffin/Trash.Trash', [
+            'field' => 'deleted'
+        ]);
 
         $this->hasMany('Pages', [
             'foreignKey' => 'user_id',

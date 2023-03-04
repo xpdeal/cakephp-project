@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Model\Table;
@@ -42,6 +43,10 @@ class PagesTable extends Table
         $this->setTable('pages');
         $this->setDisplayField('title');
         $this->setPrimaryKey('user_id');
+
+        $this->addBehavior('Muffin/Trash.Trash', [
+            'field' => 'deleted'
+        ]);
 
         $this->addBehavior('Timestamp');
     }
